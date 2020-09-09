@@ -1,0 +1,22 @@
+GET http://localhost:3000/getUser
+
+###
+POST http://localhost:3000/createUser HTTP/1.1
+content-type: application/json
+
+{
+    "name": "aluno arbyte"
+}
+
+
+###
+PUT http://localhost:3000/updateUser/5f4079b6a5edbf3714769e89 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "tapioca"
+}
+
+
+###
+DELETE http://localhost:3000/deleteUser/5f4079b6a5edbf3714769e89

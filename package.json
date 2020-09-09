@@ -1,0 +1,32 @@
+{
+  "name": "express-api",
+  "jest": {
+    "setupFiles": [
+      "dotenv/config"
+    ]
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config src/index.js",
+    "dev": "nodemon -r dotenv/config src/index.js",
+    "test": "cross-env NODE_ENV=test npm run test:unit",
+    "test:unit": "jest test/unit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "env-var": "^6.3.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4"
+  }
+}
