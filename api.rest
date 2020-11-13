@@ -1,22 +1,26 @@
-GET http://localhost:3000/getUser
+POST http://localhost:3000/createUser/create HTTP/1.1
+ Content-Type: application/json
+
+ {
+     "nome": "Wesley duarte",
+     "senha" :"1234546547",
+     "email" : "@wesleyduarte.com@@"
+ }
 
 ###
-POST http://localhost:3000/createUser HTTP/1.1
-content-type: application/json
+GET http://localhost:3000/usuarios 
 
+###
+PUT http://localhost:3000/usuarios/update/5faa9f5856f39424e8b4de69 HTTP/1.1
+Content-Type: application/json
 {
-    "name": "aluno arbyte"
-}
+     "nome": "Mack",
+     "senha" :"7375736",
+     "email" : "@mack.com"
+ }
 
 
-###
-PUT http://localhost:3000/updateUser/5f4079b6a5edbf3714769e89 HTTP/1.1
-content-type: application/json
-
-{
-    "name": "tapioca"
-}
 
 
-###
-DELETE http://localhost:3000/deleteUser/5f4079b6a5edbf3714769e89
+
+

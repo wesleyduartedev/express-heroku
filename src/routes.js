@@ -1,29 +1,28 @@
-const {
-    Router
-} = require('express');
+const express = require('express');
+const routes = express.Router();
+const controller = require('./controller/UsuariosControlles')
 
-const controller = require('./controllers/controller');
 
-const routes = Router();
+routes.post('/createUser/create', (req, res) => {
+    controller.createUser(req.body)
+        .then(result => res.send(result))
+        .catch(err => console.error(err));
 
-routes.get('/getUser', (req, res) => controller.getUSer()
-    .then(result => res.send(result))
-    .catch(error => console.error(error))
-);
+})
+routes.get('/usuarios', (req, res) => {
+    controller.readUsers()
+        .then(result => res.send(result))
+        .catch(err => console.error(err));
 
-routes.post('/createUser', (req, res) => controller.createUSer(req.body)
-    .then(result => res.send(result))
-    .catch(error => console.error(error))
-);
+})
 
-routes.put('/updateUser/:id', (req, res) => controller.updateUser(req.params, req.body)
-    .then(result => res.send(result))
-    .catch(error => console.error(error))
-);
+routes.put('/usuarios/update/:id', (req, res) => {
+      res.json({
+        params: req.params, 
+        body: req.body
+      });
+})
 
-routes.delete('/deleteUser/:id', (req, res) => controller.deleteUser(req.params)
-    .then(result => res.send(result))
-    .catch(error => console.error(error))
-);
+
 
 module.exports = routes;
